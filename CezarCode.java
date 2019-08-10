@@ -2,28 +2,38 @@ package programowanie2.kryptografia;
 
 public class CezarCode {
 
-    public String encode(String str){        //metoda szyfrujaca;
-        char x[] = str.toCharArray();
+    public void start(String word) {
+        String a ="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        //String a="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        int k = 5;
 
-        for(int i=0; i != x.length; i++){
-            int kod_ascii = (int) x[i];
-            int n = x[i];
-            //x[i] = (char) (((x[i] - 94) % 27) + 97);
-            n += 5;
-            x[i] = (char)n;
-        }
-        return new String(x);
+        System.out.println(encodeCezar(word,a,k));
+        System.out.println(decodeCezar(encodeCezar(word,a,k),a,k));
+
+        // TODO sprawdzić poprawnosc działania tego ustrojstwa
+
+    }
+    public static String encodeCezar(String tekst, String alfabet, int klucz)
+    {
+        String wynik="";
+        for(int i=0; i<tekst.length();i++)
+            for(int j=0; j<alfabet.length(); j++)
+                if(tekst.charAt(i)==alfabet.charAt(j))
+                    wynik+=alfabet.charAt((j+klucz)%alfabet.length());
+
+        return wynik;
+    }
+    public static String decodeCezar(String tekst, String alfabet, int klucz)
+    {
+        String wynik = "";
+        for(int i=0; i<tekst.length();i++)
+            for(int j=0; j<alfabet.length(); j++)
+                if(tekst.charAt(i) == alfabet.charAt(j))
+                    wynik+=alfabet.charAt((j-klucz+alfabet.length())%alfabet.length());
+
+        return wynik;
     }
 
-    static String decode(String str){     //metoda deszyfrujaca;
-        char x[] = str.toCharArray();
 
-        for(int i=0; i != x.length; i++) {
-            int n = x[i];
-            n -= 5;
-            x[i] = (char)n;
-        }
-        return new String(x);
-    }
 
 }

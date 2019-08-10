@@ -11,7 +11,7 @@ public class AppLauncher implements IAppLauncher {
         do {
             int userDecisionOfText = choiceMenu();
             System.out.println("In program");
-            String textToCode;
+            String textToCode = " ";
             switch (userDecisionOfText) {
                 case 1:
                     textToCode = userText.ImportTextOfUser();
@@ -29,14 +29,20 @@ public class AppLauncher implements IAppLauncher {
             switch (wayOfCode) {
                 case 1:
                     System.out.println("You choosen - Cezar Code");
+                    CezarCode cezarCode = new CezarCode();
+                    cezarCode.start(textToCode);
                     break;
                 case 2:
                     System.out.println("You choosen - Vigner`a Code");
+                    VigenerCode vigenerCode = new VigenerCode();
+                    vigenerCode.start(textToCode);
                     break;
                 case 3:
                     System.out.println("You choosen - Baron Code");
+                    BaronCode baron = new BaronCode();
+                    baron.start(textToCode);
                     break;
-                default:
+                    default:
                     System.out.println("Something goes wrong");
                     break;
             }
@@ -73,7 +79,7 @@ public class AppLauncher implements IAppLauncher {
         System.out.println("2. Code system tezt");
         System.out.println();
 
-        int nr = 8;
+        int nr = 312;
         // wpisana wartosc poczatkowa jest wieksza od wyboru. Gdy wystąpi wyjatek w przypadku zera nie
         // zostało by zapętlone wpisywanie poprawnej liczby z menu
         do {

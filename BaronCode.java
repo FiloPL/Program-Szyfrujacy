@@ -1,6 +1,10 @@
 package programowanie2.kryptografia;
 
-public class Baron {
+public class BaronCode {
+    public void start(String word) {
+
+
+    }
     /*
     String a  = "aaaaa";
     String b  = "aaaab";
