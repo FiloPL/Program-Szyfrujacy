@@ -3,37 +3,34 @@ package programowanie2.kryptografia;
 public class CezarCode {
 
     public void start(String word) {
-        String a ="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        //String a="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        int k = 5;
+        String alfabet = "abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        int howMuchToMove = 5;
 
-        System.out.println(encodeCezar(word,a,k));
-        System.out.println(decodeCezar(encodeCezar(word,a,k),a,k));
-
-        // TODO sprawdzić poprawnosc działania tego ustrojstwa
+        System.out.println(encodeCezar(word, alfabet, howMuchToMove));
+        System.out.println(decodeCezar(encodeCezar(word, alfabet, howMuchToMove), alfabet, howMuchToMove));
+        // TODO sprawdzić pfafadoprawnosc działania tego ustrojstwa
 
     }
-    public static String encodeCezar(String tekst, String alfabet, int klucz)
-    {
-        String wynik="";
-        for(int i=0; i<tekst.length();i++)
-            for(int j=0; j<alfabet.length(); j++)
-                if(tekst.charAt(i)==alfabet.charAt(j))
-                    wynik+=alfabet.charAt((j+klucz)%alfabet.length());
 
-        return wynik;
-    }
-    public static String decodeCezar(String tekst, String alfabet, int klucz)
-    {
-        String wynik = "";
-        for(int i=0; i<tekst.length();i++)
-            for(int j=0; j<alfabet.length(); j++)
-                if(tekst.charAt(i) == alfabet.charAt(j))
-                    wynik+=alfabet.charAt((j-klucz+alfabet.length())%alfabet.length());
+    public static String encodeCezar(String word, String alfabet, int key) {
+        String result = "";
+        for (int i = 0; i < word.length(); i++)
+            for (int j = 0; j < alfabet.length(); j++)
+                if (word.charAt(i) == alfabet.charAt(j))
+                    result += alfabet.charAt((j + key) % alfabet.length());
 
-        return wynik;
+        return result;
     }
 
+    public static String decodeCezar(String word, String alfabet, int key) {
+        String result = "";
+        for (int i = 0; i < word.length(); i++)
+            for (int j = 0; j < alfabet.length(); j++)
+                if (word.charAt(i) == alfabet.charAt(j))
+                    result += alfabet.charAt((j - key + alfabet.length()) % alfabet.length());
+
+        return result;
+    }
 
 
 }

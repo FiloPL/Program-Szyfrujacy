@@ -3,21 +3,20 @@ package programowanie2.kryptografia;
 public class VigenerCode {
 
     public void start(String word) {
-        String a = "abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        //String a="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        int k = 5;
+        String alfabet = "abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        String keyWord = "TELEFON";
 
-        System.out.println(encodeV(word, a, "TELFON"));
-        System.out.println(decodeV(encodeV(word, a, "TELFON"), a, "TELFON"));
+        System.out.println(encodeV(word, alfabet, keyWord));
+        System.out.println(decodeV(encodeV(word, alfabet, keyWord), alfabet, keyWord));
     }
 
-    public static String encodeV(String word, String alfabet, String key) {
+    private static String encodeV(String word, String alfabet, String key) {
         int dlk = key.length();
-        int keyleng[] = new int[dlk];
+        int keyLength[] = new int[dlk];
         for (int i = 0; i < dlk; i++)
             for (int j = 0; j < alfabet.length(); j++)
                 if (key.charAt(i) == alfabet.charAt(j))
-                    keyleng[i] = j;
+                    keyLength[i] = j;
 
         String result = "";
 
@@ -25,13 +24,13 @@ public class VigenerCode {
         for (int i = 0; i < word.length(); i++)
             for (int j = 0; j < alfabet.length(); j++)
                 if (word.charAt(i) == alfabet.charAt(j)) {
-                    result += alfabet.charAt((j + keyleng[k % dlk]) % alfabet.length());
+                    result += alfabet.charAt((j + keyLength[k % dlk]) % alfabet.length());
                     k++;
                 }
         return result;
     }
 
-    public static String decodeV(String word, String alfabet, String key) {
+    private static String decodeV(String word, String alfabet, String key) {
         int dlk = key.length();
         int klucze[] = new int[dlk];
         for (int i = 0; i < dlk; i++)

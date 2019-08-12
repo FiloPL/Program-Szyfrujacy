@@ -1,4 +1,6 @@
+
 package programowanie2.kryptografia;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -42,7 +44,7 @@ public class AppLauncher implements IAppLauncher {
                     BaronCode baron = new BaronCode();
                     baron.start(textToCode);
                     break;
-                    default:
+                default:
                     System.out.println("Something goes wrong");
                     break;
             }
