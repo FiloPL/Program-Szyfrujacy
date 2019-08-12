@@ -4,7 +4,7 @@ public class VigenerCode {
 
     public void start(String word) {
         String alfabet = "abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        String keyWord = "TELEFON";
+        String keyWord = "KONSTANTYnoPOliTanczyKowianeCZKA";
 
         System.out.println(encodeV(word, alfabet, keyWord));
         System.out.println(decodeV(encodeV(word, alfabet, keyWord), alfabet, keyWord));
