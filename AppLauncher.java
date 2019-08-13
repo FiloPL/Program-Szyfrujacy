@@ -11,8 +11,9 @@ public class AppLauncher implements IAppLauncher {
         TextOfUser userText = new TextOfUser();
 
         do {
-            int userDecisionOfText = choiceMenu();
-            System.out.println("In program");
+            Menu menuTxt = new Menu();
+            int userDecisionOfText = menuTxt.choiceMenu();
+            //System.out.println("In program");
             String textToCode = " ";
             switch (userDecisionOfText) {
                 case 1:
@@ -25,33 +26,34 @@ public class AppLauncher implements IAppLauncher {
                     System.out.println("Error 404 = Something go wrong");
                     break;
             }
-            Encryption enrypt = new Encryption();
-            int wayOfCode = enrypt.MetodToCode();
+
+            ChooseCode chooseMetodToCode = new ChooseCode();
+            int wayOfCode = chooseMetodToCode.MetodToCode();
 
             switch (wayOfCode) {
                 case 1:
                     System.out.println("You choosen - Cezar Code");
                     CezarCode cezarCode = new CezarCode();
-                    cezarCode.start(textToCode);
+                    cezarCode.Start(textToCode);
                     break;
                 case 2:
                     System.out.println("You choosen - Vigner`a Code");
                     VigenerCode vigenerCode = new VigenerCode();
-                    vigenerCode.start(textToCode);
+                    vigenerCode.Start(textToCode);
                     break;
                 case 3:
                     System.out.println("You choosen - Baron Code");
                     BaronCode baron = new BaronCode();
-                    baron.start(textToCode);
+                    baron.Start(textToCode);
                     break;
                 default:
                     System.out.println("Something goes wrong");
                     break;
             }
-        } while (exit());
+        } while (exitCondition());
     }
 
-    public boolean exit() {
+    private boolean exitCondition() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Do you want use App one more time?");
         boolean oneMore;
@@ -75,26 +77,4 @@ public class AppLauncher implements IAppLauncher {
         return exit;
     }
 
-    public int choiceMenu() {
-        System.out.println("Do you want:");
-        System.out.println("1. Code onw tezt");
-        System.out.println("2. Code system tezt");
-        System.out.println();
-
-        int nr = 312;
-        // wpisana wartosc poczatkowa jest wieksza od wyboru. Gdy wystąpi wyjatek w przypadku zera nie
-        // zostało by zapętlone wpisywanie poprawnej liczby z menu
-        do {
-            System.out.println("Please write you choice: ");
-            try {
-                Scanner number = new Scanner(System.in);
-                nr = number.nextInt();
-            } catch (InputMismatchException e) {
-                System.out.println("Please write corrent number");
-            }
-
-        } while (nr > 2);
-
-        return nr;
-    }
 }

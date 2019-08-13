@@ -1,8 +1,9 @@
 package programowanie2.kryptografia;
 
-public class VigenerCode {
+public class VigenerCode implements ICode {
 
-    public void start(String word) {
+    @Override
+    public void Start(String word) {
         String alfabet = "abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         String keyWord = "KONSTANTYnoPOliTanczyKowianeCZKA";
 

@@ -1,8 +1,9 @@
 package programowanie2.kryptografia;
 
-public class CezarCode {
+public class CezarCode implements ICode {
 
-    public void start(String word) {
+    @Override
+    public void Start(String word) {
         String alfabet = "abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         int howMuchToMove = 5;
 

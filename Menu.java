@@ -3,28 +3,31 @@ package programowanie2.kryptografia;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class Encryption {
+/**
+ * @author Tomasz Filo Zegarlicki
+ * [https://github.com/FiloPL]
+ * @date : 13.08.2019 19:18
+ */
+public class Menu {
+    public int choiceMenu() {
+        System.out.println("Do you want:");
+        System.out.println("1. Code onw tezt");
+        System.out.println("2. Code system tezt");
+        System.out.println();
 
-    public int MetodToCode() {
-        System.out.println("What way to code do you want uuse you want:");
-        System.out.println("1. Cezar Code");
-        System.out.println("2. Vigener Code");
-        System.out.println("3. Baron Code");
-
-        int nr = 8;
+        int nr = 312;
         // wpisana wartosc poczatkowa jest wieksza od wyboru. Gdy wystąpi wyjatek w przypadku zera nie
         // zostało by zapętlone wpisywanie poprawnej liczby z menu
         do {
             System.out.println("Please write you choice: ");
             try {
-                System.out.println();
                 Scanner number = new Scanner(System.in);
                 nr = number.nextInt();
             } catch (InputMismatchException e) {
                 System.out.println("Please write corrent number");
             }
 
-        } while (nr > 4);
+        } while (nr > 2);
 
         return nr;
     }

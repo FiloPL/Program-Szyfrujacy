@@ -5,8 +5,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class BaronCode {
-    public void start(String word) {
+public class BaronCode implements ICode {
+
+    @Override
+    public void Start(String word) {
+
         String alfabet = "abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         System.out.println(encodeBaron(word, alfabet));
         System.out.println((decodeBaron(word, alfabet)));
@@ -75,6 +78,5 @@ public class BaronCode {
 
         return null;
     }
-
 }
 
