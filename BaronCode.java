@@ -16,13 +16,11 @@ public class BaronCode implements ICode {
     }
 
     private String decodeBaron(String word, String alfabet) {
-        changeValue(word);
-        return null;
+        return changeValue(word);
     }
 
     private String encodeBaron(String word, String alfabet) {
-        changeValue(word);
-        return null;
+        return changeValue(decodeBaron(word, alfabet));
     }
 
     private String changeValue(String word) {
@@ -54,7 +52,8 @@ public class BaronCode implements ICode {
         map.put('X', "babab");
         map.put('Y', "babba");
         map.put('Z', "babbb");
-//
+// // TODO not implemented yet
+
 //        for (int i = 0; i < idNumbers.size(); i++) {
 //            String idNumber = idNumbers.get(i);
 //            int[] resultTemp = new int[9];
@@ -76,7 +75,7 @@ public class BaronCode implements ICode {
 //            }
 //        }
 
-        return null;
+        return "Not implemented yet";
     }
 }
 
